@@ -1,0 +1,39 @@
+
+
+ services:
+  database:
+     image: postgres:13
+     environment:
+       - POSTGRES_DB=my_db
+       - POSTGRES_USER=jose
+       - POSTGRES_PASSWORD=postgres
+     ports:
+       - '5432:5432'
+     volumes:
+       - postgres_data:/var/lib/postgresql
+ volumes:
+   postgresql-volume:
+     external: true
+
+# services: 
+
+#   postgres:
+#     image: postgres
+#     restart: always
+#     ports:
+#       - "5432:5432"
+#     environment:
+#       - POSTGRES_HOST=127.0.0.1
+#       - POSTGRES_USER=root
+#       - POSTGRES_PASSWORD=root
+#       - POSTGRES_DB=root
+      
+#   pgadmin:
+#     image: dpage/pgadmin4
+#     environment:
+#       PGADMIN_DEFAULT_EMAIL: "admin@admin.com"
+#       PGADMIN_DEFAULT_PASSWORD: "admin"
+#     ports:
+#       - "80:80"
+#     depends_on:
+#       - postgres  
